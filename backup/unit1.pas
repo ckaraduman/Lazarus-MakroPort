@@ -110,7 +110,7 @@ begin
                 ZQuery2.SQL.Clear;
                 m_time:=Time();
                 Form2.Edit2.Caption:=DateTimeToStr(m_time);
-                ZQuery2.SQL.Add('insert into m_user_logs (user_id, system_entry_time, user_ip) values ('+IntToStr(user_id)+',"'+DateTimeToStr(m_time)+'", "'+GetIpPub+'")');
+                ZQuery2.SQL.Add('insert into m_user_logs (user_id, system_entry_time, user_ip) values ('+IntToStr(user_id)+',"'+DateTimeToStr(m_time)+'", "100.100.100.100")');
                 ZQuery2.ExecSQL;
                 ZQuery2.Close;
            end
@@ -121,12 +121,4 @@ begin
      end;
 end;
 end.
-
-
-
-procedure TForm2.Button2Click(Sender: TObject);
-begin
-
-  //ShowMessage(GetIpPub);
-end;
 
