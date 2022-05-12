@@ -1,10 +1,10 @@
 object Form2: TForm2
-  Left = 411
-  Height = 395
-  Top = 494
+  Left = 185
+  Height = 401
+  Top = 377
   Width = 886
   Caption = 'MakroPort'
-  ClientHeight = 395
+  ClientHeight = 401
   ClientWidth = 886
   DesignTimePPI = 120
   Icon.Data = {
@@ -312,6 +312,7 @@ object Form2: TForm2
     0000000000000000000000000000000000000000000000000000000000000000
     0000
   }
+  OnClose = FormClose
   LCLVersion = '2.2.0.4'
   object Label1: TLabel
     Left = 16
@@ -367,5 +368,18 @@ object Form2: TForm2
     Top = 64
     Width = 518
     TabOrder = 5
+  end
+  object Label14: TLabel
+    Left = 392
+    Height = 12
+    Top = 376
+    Width = 254
+    Caption = 'CopyRight MakroPort by Cem İlker Karaduman''2022 '
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -10
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
   end
 end
