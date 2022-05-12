@@ -1,7 +1,7 @@
 object Form2: TForm2
-  Left = 411
+  Left = 816
   Height = 395
-  Top = 494
+  Top = 438
   Width = 886
   Caption = 'MakroPort'
   ClientHeight = 395
@@ -312,6 +312,7 @@ object Form2: TForm2
     0000000000000000000000000000000000000000000000000000000000000000
     0000
   }
+  OnClose = FormClose
   LCLVersion = '2.2.0.4'
   object Label1: TLabel
     Left = 16
@@ -335,7 +336,6 @@ object Form2: TForm2
     Top = 80
     Width = 94
     Caption = 'Button2'
-    OnClick = Button2Click
     TabOrder = 1
   end
   object Button3: TButton

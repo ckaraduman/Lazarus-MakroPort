@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, mysql80conn, SQLDB, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, ExtCtrls, Buttons, ZConnection, ZDataset, Unit2, SHA1, fphttpclient;
+  StdCtrls, ExtCtrls, Buttons, ZConnection, ZDataset, Unit2, Unit3, SHA1, fphttpclient;
 
 type
 
@@ -39,6 +39,9 @@ type
 var
   Form1: TForm1;
   pass:string;
+  userid:Integer;
+  usertime:String;
+  userip:String;
 
 implementation
 
@@ -81,14 +84,15 @@ end;
 
 procedure TForm1.Button2Click(Sender: TObject);
 begin
-
+     Form3.Show;
+     Form1.Hide;
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
 var
   hashTexto : TSHA1Digest;
-  m_time : TDateTime;
-  sql1:String;
+  m_time:String;
+
   user_id:integer;
 begin
      If (Edit1.Text='') then ShowMessage('Lütfen kullanıcı adınızı ve şifrenizi giriniz!')
@@ -108,9 +112,12 @@ begin
            Form2.Show;
            Form1.Hide;
                 ZQuery2.SQL.Clear;
-                m_time:=Time();
-                Form2.Edit2.Caption:=DateTimeToStr(m_time);
-                ZQuery2.SQL.Add('insert into m_user_logs (user_id, system_entry_time, user_ip) values ('+IntToStr(user_id)+',"'+DateTimeToStr(m_time)+'", "100.100.100.100")');
+                m_time:=FormatDateTime('DD MM YYYY hh:nn:ss', now);
+                Form2.Edit2.Caption:=m_time;
+                userid := user_id;
+                usertime:= m_time;
+                userip:= GetIpPub;
+                ZQuery2.SQL.Add('insert into m_user_logs (user_id, system_entry_time, user_ip) values ('+IntToStr(user_id)+',"'+m_time+'", "'+GetIpPub+'")');
                 ZQuery2.ExecSQL;
                 ZQuery2.Close;
            end
@@ -121,4 +128,12 @@ begin
      end;
 end;
 end.
+
+
+
+procedure TForm2.Button2Click(Sender: TObject);
+begin
+
+  //ShowMessage(GetIpPub);
+end;
 
